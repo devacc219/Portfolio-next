@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import Splash from "./_components/splash";
+import Splash from "./_components/splash/splash";
 import { useState } from "react";
 
 export default function Home() {
