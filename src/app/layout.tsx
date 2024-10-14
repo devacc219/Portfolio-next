@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "./_components/navbar/navbar";
+import Footer from "./_components/footer/footer";
 
 
 export const metadata: Metadata = {
@@ -20,7 +22,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
       </head>
       <body>
-        {children}
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
+
       </body>
     </html>
   );
