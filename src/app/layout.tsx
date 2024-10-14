@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import RootLayoutSplash from "./_components/common/rootlayout";
+import RootLayoutSplash from "./_components/common/rootLayoutSplash";
 
 
 export const metadata: Metadata = {
