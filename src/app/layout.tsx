@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import RootLayoutSplash from "./_components/common/rootLayoutSplash";
@@ -14,6 +15,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+
   return (
     <html lang="en">
       <head>
@@ -25,6 +28,7 @@ export default function RootLayout({
         <RootLayoutSplash>
           {children}
         </RootLayoutSplash>
+        
       </body>
     </html>
   );
