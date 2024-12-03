@@ -1,12 +1,27 @@
+import { useState, useEffect } from 'react';
 import '../splash/splash.css';
 
-export default function Splash() {
+export default function Splash({ onComplete }: { onComplete: () => void }) {
+    const [isVisible, setIsVisible] = useState(true)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsVisible(false)
+            localStorage.setItem('splashScreenShown', 'true')
+            onComplete()
+        }, 1000)
+
+        return () => clearTimeout(timer)
+    }, [onComplete])
+
     return (
-        <div className='flex items-center justify-center h-screen'>
-            <div className="loader">
-                <div className="box">
-                    <div className="logo">
-                        {/* <svg
+        <>
+            {isVisible && (
+                <div className='flex items-center justify-center h-screen'>
+                    <div className="loader">
+                        <div className="box">
+                            <div className="logo">
+                                {/* <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 94 94"
@@ -16,15 +31,16 @@ export default function Splash() {
                             <path d="M86.9 61.8682C86.9 64.5353 84.9301 66.6975 82.5 66.6975H73.6595C71.2295 66.6975 69.2595 64.5353 69.2595 61.8682V4.82927C69.2595 2.16214 71.2295 0 73.6595 0H82.5C84.9301 0 86.9 2.16214 86.9 4.82927V61.8682Z" />
                             <path d="M2.86102e-06 83.2195C2.86102e-06 80.5524 1.96995 78.3902 4.4 78.3902H83.6C86.0301 78.3902 88 80.5524 88 83.2195V89.1707C88 91.8379 86.0301 94 83.6 94H4.4C1.96995 94 0 91.8379 0 89.1707L2.86102e-06 83.2195Z" />
                         </svg> */}
-                        <h1 className='text-2xl font-bold underline'>VS</h1>
+                                <h1 className='text-2xl font-bold underline'>VS</h1>
+                            </div>
+                        </div>
+                        <div className="box" />
+                        <div className="box" />
+                        <div className="box" />
+                        <div className="box" />
                     </div>
-                </div>
-                <div className="box" />
-                <div className="box" />
-                <div className="box" />
-                <div className="box" />
-            </div>
-        </div >
-
+                </div >
+            )}
+        </>
     );
 }
