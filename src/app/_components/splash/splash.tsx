@@ -7,7 +7,7 @@ export default function Splash({ onComplete }: { onComplete: () => void }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false)
-            sessionStorage.setItem('splashScreenShown', 'true')
+            localStorage.setItem('splashScreenShown', 'true')
             onComplete()
         }, 1000)
 

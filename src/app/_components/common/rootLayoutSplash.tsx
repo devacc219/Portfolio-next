@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Splash from "../splash/splash";
 import Footer from "../footer/footer";
 import Navbar from "../navbar/navbar";
@@ -9,17 +9,16 @@ export default function RootLayoutSplash({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const splashShown = sessionStorage.getItem('splashScreenShown');
-  const [showSplash] = useState(!splashShown )
-  const [showContent, setShowContent] = useState(splashShown??false)
+  const [showSplash, setShowSplash] = useState(true)
+  const [showContent, setShowContent] = useState(false)
 
-  // useEffect(() => {
-  //   const splashShown = sessionStorage.getItem('splashScreenShown')
-  //   if (splashShown) {
-  //     setShowSplash(false)
-  //     setShowContent(true)
-  //   }
-  // }, [])
+  useEffect(() => {
+    const splashShown = localStorage.getItem('splashScreenShown')
+    if (splashShown) {
+      setShowSplash(false)
+      setShowContent(true)
+    }
+  }, [])
 
   const handleSplashComplete = () => {
     setShowContent(true)
