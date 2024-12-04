@@ -21,7 +21,8 @@ export function Menu() {
         {/* <div className="text-white">EN</div> */}
       </div>
       {isOpen && (
-        <nav className="fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center">
+        <div onClick={() => setIsOpen(false)}>
+          <nav className="fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center">
           <ul className="text-center space-y-8">
             {Object.entries(strings.navigation).map(([key, value]) => (
               <li key={key}>
@@ -36,6 +37,7 @@ export function Menu() {
             ))}
           </ul>
         </nav>
+        </div>
       )}
     </header>
   )

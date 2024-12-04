@@ -12,7 +12,8 @@ export default function ParticleGlobeSvg(props: React.JSX.IntrinsicAttributes & 
       viewBox="450 450 100 100"
       {...props}
     >
-      <path d="M450 450H550V550H450z" />
+      {/* TODO :: make color configurable */}
+      <path d="M450 450H550V550H450z" fill="#0a0a0a"/>
       <g fill="#fff">
         <circle cx={498.387} cy={503.99} r={0.085} />
         <path d="M498.305 503.239a.085.085 0 110 .17.085.085 0 010-.17z" />
