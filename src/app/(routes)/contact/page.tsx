@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Contact() {
   return (
-    <div className="min-h-screen flex flex-col justify-between py-16">
+    <div className="flex flex-col justify-between py-16">
       <div className="flex-1 grid md:grid-cols-2 gap-8">
         <div>
           <h1 className="text-2xl font-bold mb-8">{strings.contact.title}</h1>
